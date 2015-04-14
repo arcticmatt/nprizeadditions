@@ -88,19 +88,22 @@ int score_argv(char **argv) {return 0;}
 void score_setup() {
     int i,u,m, j;
 
-    for (m=0; m<NMOVIES; m++) {
-        moviercount[m*SOFTMAX+0] = 0;
-        moviercount[m*SOFTMAX+1] = 0;
-        moviercount[m*SOFTMAX+2] = 0;
-        moviercount[m*SOFTMAX+3] = 0;
-        moviercount[m*SOFTMAX+4] = 0;
+
+    /* Initialize the matrix counting how many times
+     * each movie got each rating to 0 */
+    for (m = 0; m < NMOVIES; m++) {
+        moviercount[m * SOFTMAX + 0] = 0;
+        moviercount[m * SOFTMAX + 1] = 0;
+        moviercount[m * SOFTMAX + 2] = 0;
+        moviercount[m * SOFTMAX + 3] = 0;
+        moviercount[m * SOFTMAX + 4] = 0;
     }
-    for(u=0;u<NUSERS;u++) {
-        int base0=useridx[u][0];
-        int d0=UNTRAIN(u);
+    for(u = 0; u < NUSERS; u++) {
+        int base0 = useridx[u][0];
+        int d0 = UNTRAIN(u);
 
         // For all rated movies
-        for(j=0;j<d0;j++) {
+        for(j = 0; j < d 0; j++) {
             int m=userent[base0+j]&USER_MOVIEMASK;
             int r=(userent[base0+j]>>USER_LMOVIEMASK)&7;
             moviercount[m*SOFTMAX+r]++;
