@@ -111,7 +111,7 @@ void score_setup() {
 
 void recordErrors() {
     int u,h,f, j, i;
-    for(u=0;u<NUSERS;u++) {
+    for(u = 0; u < NUSERS; u++) {
 
         // Zero out the summation variables for vis probabilities
         ZERO(negvisprobs);
